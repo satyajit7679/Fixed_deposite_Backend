@@ -8,7 +8,7 @@ const User = require("./schema/userSchema"); // Import the User model
 const router = require("./routes/userRoutes");
 const app = express();
 //const authRoutes = require('./routes/auth');
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 //const router = express.Router();
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
@@ -447,8 +447,8 @@ app.get("/contact-data", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 function generateAccessToken(payload) {
